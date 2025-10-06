@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <title>Puntos de Envios</title>
+</head>
+<body>
+   <header class="d-flex justify-content-between align-items-center p-3 border-bottom">
+     <div id="logo" class="d-flex align-items-center gap-2"> 
+        <img src="Imagenes/logo.png" alt="Logo ServiPack" class="img-fluid rounded-circle" style="height: 100px; width: auto;"> 
+        
+        <h1 class="mb-0">Transporte ServiPack</h1> 
+    </div>
+        <!--<nav id="botonera1"> LA DEJO SIN USAR POR AHORA
+            <ul>
+                <li><a href="index.html#sect1">Quienes Somos</a></li>
+                <li><a href="servicios.html#sect2">Servicios</a></li>
+                <li><a href="envios.html#sect3">Puntos de Envios</a></li>
+                 <li><a href="clientes.html#sect4">Clientes</a></li>
+                 <li><a href="novedades.html#sect5">Novedades</a></li>
+
+            </ul>
+        </nav>
+    -->
+<nav class="d-flex flex-wrap gap-2">
+ <a href="index.html#sect1" class="btn btn-outline-secondary" role="button">Nosotros</a>
+ <a href="servicios.html#sect2" class="btn btn-primary" role="button">Servicios</a>
+  <a href="novedades.html#sect3" class="btn btn-outline-success" role="button">Novedades</a>
+  <a href="clientes.html#sect4" class="btn btn-danger" role="button">Clientes</a>
+  <a href="#sect5" class="btn btn-warning" role="button">Envios</a>
+</nav>
+ <!--ESTA ES L ANUEVA BOTONERA DE REDES SOCIALES CON EL MENU DESPLEGABLE-->
+   <div class="btn-group" role="group">
+    <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+      Redes Sociales
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+      <li><a class="dropdown-item" href="https://www.instagram.com/transporteservipac/"target=_blank><img src="Imagenes/instagram.svg"Instagram></a></li>
+      <li><a class="dropdown-item" href="https://wa.link/hisr95" target="_blank"><img src="Imagenes/whatsapp.svg"></a></li>
+    </ul>
+  </div>
+</div>
+        <!--<ul> ESTA ERA LA BOTONERA DE REDES SOCIALES.-
+            <li><a href="https://www.instagram.com/transporteservipac"target=_blank><img src="Imagenes/instagram.svg"></a></li>
+            <li> <a href= "https://wa.link/hisr95" target="_blank"><img src="Imagenes/whatsapp.svg"></a></li>
+        </ul> -->
+    
+</header>
+    <section id="sect3">
+    <div id="puntos_sect3">
+        <form id="pedidoForm" class="needs-validation" novalidate>  
+  <div class="row g-3">  
+    <!-- Nombre y Apellido -->  
+    <div class="col-md-6">  
+      <label for="nombre" class="form-label">Nombre y Apellido</label>  
+      <input type="text" class="form-control" id="nombre" name="nombre" required placeholder="Ej: Ana López">  
+      <div class="invalid-feedback">Por favor ingresa tu nombre y apellido.</div>  
+    </div>  
+
+    <!-- Teléfono -->  
+    <div class="col-md-6">  
+      <label for="telefono" class="form-label">Teléfono</label>  
+      <input type="tel" class="form-control" id="telefono" name="telefono" required placeholder="Ej: +54 9 341 123-4567">  
+      <div class="invalid-feedback">Ingresa un teléfono válido.</div>  
+    </div>  
+
+    <!-- Dirección -->  
+    <div class="col-md-6">  
+      <label for="direccion" class="form-label">Dirección</label>  
+      <input type="text" class="form-control" id="direccion" name="direccion" required placeholder="Calle, número, barrio">  
+      <div class="invalid-feedback">Ingresa la dirección de entrega.</div>  
+    </div>  
+
+    <!-- Localidad -->  
+    <div class="col-md-6">  
+      <label for="localidad" class="form-label">Localidad</label>  
+      <input type="text" class="form-control" id="localidad" name="localidad" required placeholder="Localidad o ciudad">  
+      <div class="invalid-feedback">Indica la localidad.</div>  
+    </div>  
+
+    <!-- Horarios -->  
+    <div class="col-md-6">  
+      <label for="horarios" class="form-label">Horarios de entrega</label>  
+      <input type="text" class="form-control" id="horarios" name="horarios" required placeholder="Ej: 9:00 - 12:00 / 15:00 - 18:00">  
+      <div class="invalid-feedback">Especifica el horario de entrega.</div>  
+    </div>  
+
+    <!-- Persona que recibe -->  
+    <div class="col-md-6">  
+      <label for="recepcionista" class="form-label">Persona que recibe</label>  
+      <input type="text" class="form-control" id="recepcionista" name="recepcionista" required placeholder="Nombre de quien recibe">  
+      <div class="invalid-feedback">Indica la persona que recibirá el pedido.</div>  
+    </div>  
+
+    <!-- Descripción del pedido -->  
+    <div class="col-12">  
+      <label for="descripcion" class="form-label">Descripción del pedido</label>  
+      <textarea class="form-control" id="descripcion" name="descripcion" rows="4" required placeholder="Describe el pedido (tipo de mercancía, peso aproximado, instrucciones, etc.)"></textarea>  
+      <div class="invalid-feedback">Describe brevemente el pedido para su entrega.</div>  
+    </div>  
+  </div>  
+
+  <div class="mt-3">  
+    <button type="submit" class="btn btn-primary">Enviar</button>  
+  </div>  
+
+  <div id="formMsg" class="mt-3" role="status" aria-live="polite" style="display:none;"></div>  
+</form>  
+
+<!-- Script de validación (Bootstrap 5) -->  
+<script>  
+  (function () {  
+    'use strict'  
+    var forms = document.querySelectorAll('.needs-validation')  
+    Array.prototype.slice.call(forms)  
+      .forEach(function (form) {  
+        form.addEventListener('submit', function (event) {  
+          event.preventDefault()  
+          event.stopPropagation()  
+          if (form.checkValidity()) {  
+            // Aquí iría el envío real al backend  
+            document.getElementById('formMsg').style.display = 'block'  
+            document.getElementById('formMsg').textContent = 'Pedido enviado. Nos pondremos en contacto pronto.'  
+            form.reset()  
+          } else
+            document.getElementBy ;
+        )};
+</script>
+       </div>
+    <div class="mapa-contenedor">
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1218.0359562999645!2d-60.39885290590129!3d-30.364328993188078!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x944b0554d00a3d67%3A0x32806dff5ef9e!2sEstaci%C3%B3n%20de%20Servicio%20YPF%20Full%20de%20Zilli%20Gustavo%20Hern%C3%A1n!5e1!3m2!1ses-419!2sar!4v1759782937219!5m2!1ses-419!2sar"
+             width="600" 
+             height="450" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+</section>
+
+<footer class="footer-transport">
+  <div id="datos" class="footer-block">
+    <h2>Contacto</h2>
+    <h4>Tel: 03498-15478680</h4>
+  </div>
+
+  <div id="direccion" class="footer-block">
+    <h3>Dirección</h3>
+    <h5>Fco Zilli N 756 - Gobernador Crespo (Santa Fe)</h5>
+  </div>
+</footer>
+
+</body>
+</html>

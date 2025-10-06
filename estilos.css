@@ -1,0 +1,375 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+header,section,footer {
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+footer {
+    background-color: #09f3f3;
+}
+/*cabecera defino logo, botenera navegacion y redes sociales (va whatsapp y redes)*/
+header {
+    height: 200px;
+    background-color: #8cbfe6;
+    border: 5px solid #788b97;  
+    border-radius: 8px;
+}
+#logo {
+    width: 250px;
+    height: 100px;
+    margin-left: 10px;
+    margin-top: 10px;
+    box-sizing: border-box;
+}
+h1 {
+    margin:0;
+    text-align:center;
+}
+#botonera1 { 
+    width: 600px;
+    height:100px;
+    float:none;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+}
+
+#botonera1 ul, #sociales ul {
+    margin: auto;
+    padding:0px;
+    list-style-type: none;
+    display:flex;
+
+}
+#botonera1 ul li a {
+    display: block;
+    text-decoration: none;
+    color:rgb(7, 15, 9);
+    font-weight: bold;
+    background-color: #77cff7;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 10px;
+    width: 100px;
+    text-align: center;
+}
+
+#sociales {
+    width: 150px;
+    height: 40px;
+    margin-left: 2px;
+    float: right;
+    padding: 5px;
+    box-sizing: border-box;
+    align-content: center;
+}
+
+#botonera1 ul li a:hover {
+    background-color: #e91a1a;
+}
+
+
+
+/*Comienzo a definir las secciones*/
+/*seccion1 scroll imagenes, quienes somos, hace tu pedido*/
+#sect1 {
+    height: 600px;
+    background-color:#8de0f3;
+    border: 5px solid: #788b97;  
+    border-radius: 8px;
+}
+
+#img_sect1 {
+    width: 300px;
+    height: 300px;
+    margin-left: 100px;
+    margin-top: 10px;
+    float: left;
+    border-image: url(Imagenes/expresso.png)20 20 20 20 round round;
+}
+
+.Form_img {
+    width: 100%;
+    
+}
+#quienes_sect1 {
+    width: 600px;
+    height: 270px;
+    margin: 10px;
+    margin-top:5px;
+    margin-block: 5px;
+    /*clear:left;*/
+    float: left;
+    padding: 5px;
+}
+h6{
+    margin: 0px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    color:rgb(1, 27, 27);
+ }
+#carrusel_sect1 {
+    width:500px;
+    height: 570px;
+    background-color: rgb(109, 166, 216);
+    float:right;
+    margin-top: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+
+}
+.txtPedido {
+    font-size: 30px;
+    text-align: center;
+    font-weight: bold;
+    color: rgb(1, 27, 27);
+}
+/*seccion 2 servicios*/
+#sect2 {
+    height: 600px;
+    border: 2px solid #788b97;  
+    border-radius: 8px;
+   
+}
+
+#servicio_sect2 {
+    width:1100px;
+    height: 90px;
+    background-color: cornflowerblue;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5px;
+    clear: both;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+#servicio1_sect2 {
+    width: 380px;
+    height:450px;
+    background-color: #d329b7;
+    margin-top: 10px;
+    margin: 10px;
+    float: left;
+
+}
+#servicio2_sect2 {
+    width: 380px;
+    height:450px;
+    background-color: #d681c8;
+    margin-top: 10px;
+    margin: 10px;
+    float: left;
+
+}
+#servicio3_sect2 {
+    width: 380px;
+    height:450px;
+    background-color: #6d0a5c;
+    margin-top: 10px;
+    margin:10px;
+    float: left;
+
+}
+.txtservicios {
+font-size: 15px;
+color: aliceblue;
+text-align: center;
+}
+
+/*seccion 3 mapa, puntos de redespacho*/
+#sect3 {
+    height: 600px;
+    background-color: rgb(241, 108, 13);
+    border: 5px solid #788b97;  
+    border-radius: 8px;
+}
+#puntos_sect3 {
+width: 400px;
+height: 550px;
+background-color: rgb(246, 169, 141);
+float: left;
+margin:10px;
+}
+ #segumiento_sect3 {
+    width: 150px;
+    height: 400px;
+    background-color: rgb(236, 152, 34);
+    float: left;
+    margin: 10px;
+    margin-top: 160px;
+
+ }
+ /* Contenedor principal para control de márgenes/paddings */
+.mapa-contenedor {
+    margin: 20px 0; /* Agrega espacio por encima y por debajo */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sutil sombra para destacarlo */
+    border-radius: 8px; /* Bordes redondeados, ¡siempre mejor! */
+    overflow: hidden; /* Importante para que los bordes redondeados funcionen bien */
+}
+
+/* El estilo clave para la responsividad del Iframe */
+.mapa-contenedor iframe {
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+    /* La altura se debe ajustar. Si no especificas el height en el iframe, 
+       puedes usar un valor fijo o el 'aspect-ratio' si tu proyecto lo soporta. 
+       Por simplicidad, mantenemos el 'height' fijo del código de Google (ej: 450px). */
+    display: block; /* Elimina cualquier posible espacio extra */
+}
+
+ #sect4 {
+    height:600px;
+    background-color: rgb(30, 236, 209);
+    border: 5px solid #788b97;  
+    border-radius: 8px;
+ }
+ /* NUEVO ESTILO DE CLIENTES CON GRILLA */
+ /* Estilos para el nuevo componente de logos */
+.logo-cliente {
+    /* Define un tamaño máximo para que todos los logos se vean uniformes */
+    max-width: 190px; 
+    height: auto;
+    
+    /* Efecto visual: Ligeramente opaco para un look profesional */
+    opacity: 0.8; 
+    transition: opacity 0.3s ease-in-out; 
+}
+
+/* Efecto hover: Se ilumina al pasar el mouse */
+.logo-cliente:hover {
+    opacity: 1; 
+}
+
+
+
+#sect5 {
+    height: 600px;
+    background-color: rgb(235, 165, 235);
+    border: 5px solid #788b97;  
+    border-radius: 8px;
+}
+#novedades_sect5 {
+    width: 350px;
+    height:470px;
+    background-color: #e1ecd6;
+    margin-top: 10px;
+    margin: 10px;
+    float: left;
+
+}
+#novedades1_sect5 {
+    width: 380px;
+    height:470px;
+    background-color: #aee1d3;
+    margin-top: 10px;
+    margin: 10px;
+    float: left;
+
+}
+#novedades2_sect5 {
+    width: 380px;
+    height:470px;
+    background-color: #7cd7cf;
+    margin-top: 10px;
+    margin:10px;
+    float: left;
+
+}
+/*comienzo a definir el footer, va a llevar contacto y dirección*/
+
+/*footer {
+    height: 150px;
+    background-color: #09f3f3;
+    border: 5px solid #788b97;  
+    border-radius: 8px;
+}
+#datos {
+    width: 550px;
+    height: 120px;
+    float: left;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+}
+#direccion {
+    width: 550px;
+    height:120px;
+    float: right;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+}
+.variablespedido {
+    color: #051286;
+    font-weight: bold;
+}*/ 
+   /* Contenedor principal del footer */
+
+.footer-transport {
+    height: 150px;
+    border: 5px solid #788b97;  
+    border-radius: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: stretch;
+
+  /* Estilo base */
+  height: auto; /* permite adaptarse a contenido */
+  padding: 20px;
+  background: #111827; /* base oscura para buen contraste */
+  color: #9de0ef;
+  border-radius: 12px;
+  border: 1px solid #334155;
+  gap: 20px;
+}
+
+/* Cada bloque interno del footer (datos, direccion, etc.) */
+.footer-block {
+  flex: 1 1 260px; /* se expanden de forma uniforme, pero con ancho mínimo */
+  min-width: 250px;
+  text-align: center;
+  padding: 14px 10px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Encabezados con jerarquía clara */
+.footer-block h2,
+.footer-block h3,
+.footer-block h4,
+.footer-block h5 {
+  margin: 6px 0;
+  line-height: 1.2;
+}
+.footer-block h2 { font-size: 20px; color: #9298a2; }
+.footer-block h3 { font-size: 16px; color: #9298a2; }
+.footer-block h4 { font-size: 15px; color: #93c5fd; }
+.footer-block h5 { font-size: 14px; color: #93c5fd; }
+
+/* Ajuste para pantallas muy anchas, separa visualmente los bloques */
+@media (min-width: 900px) {
+  .footer-transport {
+    height: 180px; /* altura fija opcional; si prefieres, usa auto */
+    align-items: center;
+  }
+  .footer-block { text-align: center; }
+}
+
+/* Opcional: mejora de contraste para accesibilidad */
+@media (prefers-color-scheme: light) {
+  .footer-transport {
+    background: #7cb4ec;
+    color: #0f172a;
+    border: 1px solid #676d75;
+  }
+  .footer-block {
+    background: rgba(255,255,255,0.6);
+  }
+} 
+
