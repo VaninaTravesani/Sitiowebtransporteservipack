@@ -1,0 +1,44 @@
+// Keyframes para la animación del logo
+@keyframes logo-entrada {
+  0% {
+    opacity: 0; // Inicia invisible
+    transform: translateX(-100px) rotate(-180deg) scale(0.5); // Viene desde la izquierda, girado, más pequeño
+  }
+  50% {
+    opacity: 0.8; // A mitad de camino, casi visible
+    transform: translateX(50px) rotate(180deg) scale(1.1); // Se pasa un poco a la derecha, gira, se agranda levemente
+  }
+  100% {
+    opacity: 1; // Termina visible
+    transform: translateX(0) rotate(0deg) scale(1); // Vuelve a su posición original, sin giro, tamaño normal
+  }
+}
+
+// ⭐ Nuevo: Ajuste de la animación para pantallas pequeñas ⭐
+@media (max-width: 768px) {
+  @keyframes logo-entrada { // Sobreescribimos la animación para esta media query
+    0% {
+      opacity: 0;
+      transform: translateX(-50px) rotate(-90deg) scale(0.7); // Menos desplazamiento, menos giro
+    }
+    50% {
+      opacity: 0.8;
+      transform: translateX(20px) rotate(90deg) scale(1.05); // Menos desplazamiento
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0) rotate(0deg) scale(1);
+    }
+  }
+}
+
+@keyframes slide-in-bottom {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

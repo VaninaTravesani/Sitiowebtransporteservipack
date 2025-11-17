@@ -1,0 +1,21 @@
+@use 'variables';
+// Mixin para centrar bloques principales
+@mixin centrar-bloque {
+  // 2. Accede a la variable con el namespace 'variables.'
+  width: variables.$ancho-contenedor; 
+  margin: 0 auto;
+}
+// Mixin para el estilo base de las secciones (borde y radio)
+@mixin estilo-base-seccion {
+  border: variables.$borde-general;
+  border-radius: variables.$radio-borde-principal;
+}
+
+// Mixin para la tipografía de encabezados de sección
+@mixin titulo-seccion($size: 30px, $color: $color-texto-claro-sec) {
+  margin: 0;
+  text-align: center;
+  font-size: $size;
+  font-weight: bold;
+  color: $color;
+}

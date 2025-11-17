@@ -1,0 +1,385 @@
+// 1. Importar variables y mixins
+@use 'variables';
+@use 'mixins';
+@use 'animations';
+
+body {
+  font-family: variables.$fuente-principal;
+}
+
+// 2. Estilos comunes para contenedores principales
+header,
+section,
+footer {
+  @include mixins.centrar-bloque;
+}
+
+section {
+    @include mixins.centrar-bloque;
+  // Aplicamos la animación a todas las secciones
+  animation: slide-in-bottom 0.8s ease-out both;
+}
+h1 {
+  margin: 0;
+  text-align: center;
+}
+
+// Estilos de texto globales
+h6 {
+  @include mixins.titulo-seccion(30px, variables.$color-texto-claro-sec);
+}
+
+.txtPedido {
+  @include mixins.titulo-seccion(30px, variables.$color-texto-claro-sec);
+}
+
+.txtservicios {
+  font-size: 15px;
+  color: aliceblue;
+  text-align: center;
+}
+
+// 3. Bloque HEADER (Cabecera)
+header {
+  @include mixins.estilo-base-seccion;
+  height: 200px;
+  background-color: variables.$color-header;
+
+ 
+  // ... estilos del logo y botonera ...
+
+  
+  @media (max-width: 1250px) {
+    // Sobreescribimos el ancho para que sea fluido
+    width: 95%; 
+  }
+  
+  @media (max-width: 768px) {
+    // En móviles, apilamos los elementos y reducimos la altura
+    height: auto; 
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+
+    #botonera1 {
+        width: 100%;
+    }
+  }
+}
+
+  /* Anidamiento para elementos internos del header */
+  #logo {
+    width: 250px;
+    height: 100px;
+    margin: 10px 0 0 10px; // Abreviando margen
+    box-sizing: border-box;
+
+    animation: logo-entrada 2s ease-out forwards;
+  }
+
+  // Estilos de la botonera principal
+  #botonera1 {
+    width: 600px;
+    height: 100px;
+    float: none;
+    margin: 0 auto; // Centrado horizontal
+    box-sizing: border-box;
+
+    // Anidamiento de lista y elementos de la botonera
+    ul {
+      margin: auto;
+      padding: 0;
+      list-style-type: none;
+      display: flex;
+
+      li a { // Compila a #botonera1 ul li a
+        display: block;
+        text-decoration: none;
+        color: variables.$color-texto-oscuro;
+        font-weight: bold;
+        background-color: variables.$color-btn-nav;
+        padding: 20px;
+        border-radius: 10px;
+        margin: 10px;
+        width: 100px;
+        text-align: center;
+
+        transition: background-color 0.3s ease, transform 0.2s ease;
+
+        &:hover { // Anidamiento de pseudo-clase
+          background-color: variables.$color-hover-btn;
+
+          transform: scale(1.05);
+        }
+      }
+    }
+  }
+
+  // Estilos de Redes Sociales
+  #sociales {
+    width: 150px;
+    height: 40px;
+    margin-left: 2px;
+    float: right;
+    padding: 5px;
+    box-sizing: border-box;
+    align-content: center;
+
+    ul {
+      margin: auto;
+      padding: 0;
+      list-style-type: none;
+      display: flex;
+    }
+  }
+// Fin de Header
+
+// 4. Bloques SECTION (Secciones)
+
+#sect1 {
+  @include mixins.estilo-base-seccion;
+  height: 600px;
+  background-color: variables.$color-fondo-sec1;
+
+  #img_sect1 {
+    width: 300px;
+    height: 300px;
+    margin: 10px 0 0 100px;
+    float: left;
+    // La propiedad 'border-image' no se puede simplificar con Sass.
+    border-image: url(Imagenes/expresso.png) 20 round;
+  }
+
+  .Form_img {
+    width: 100%;
+  }
+
+  #quienes_sect1 {
+    width: 600px;
+    height: 270px;
+    margin: 5px 10px; // Combinando margin-top y margin-block
+    float: left;
+    padding: 5px;
+  }
+
+  #carrusel_sect1 {
+    width: 500px;
+    height: 570px;
+    background-color: rgb(109, 166, 216);
+    float: right;
+    margin-top: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+}
+
+#sect2 {
+  @include mixins.estilo-base-seccion; 
+  border-width: 2px; // Sobreescribiendo el ancho del borde
+  height: auto;
+  // ⭐ PASO CLAVE: USAR FLEXBOX PARA REEMPLAZAR FLOAT ⭐
+  display: flex; 
+  flex-wrap: wrap; 
+  justify-content: center; // Centra los servicios en el eje horizontal
+  align-content: flex-start; // Alinea el contenido al inicio para no dejar espacio arriba
+  
+
+// bucle @each para aplicar los estilos de forma dinámica
+@each $nombre, $color in variables.$mapa-servicios {
+  ##{$nombre}_sect2 { // Interpola el nombre para crear los selectores: #servicio-1_sect2, etc.
+    width: 340px;
+    height: 450px;
+    margin: 10px 5px;
+    background-color: $color; // Aplica el color del mapa
+  }
+}
+}
+
+// ⭐ CONTENEDOR DE TÍTULO (MANTENER FUERA DEL BLOQUE #sect2) ⭐
+// Este elemento en HTML es hermano de #sect2, 
+#servicio_sect2 {
+  // @include centrar-bloque; <-- Cuidado si esto aplica el ancho de 1200px.
+  width: 1100px; 
+  height: 90px;
+  background-color: variables.$color-fondo-sec2-servicio;
+  margin: 20px auto;
+  //margin: 0 auto 5px auto; // Centrado horizontal
+  clear: both; // Mantenemos clear: both; para asegurar que limpia cualquier flotante anterior
+  padding: 10px;
+  box-sizing: border-box;
+  display: block;
+}
+
+  // Uso de un mapa o loop sería ideal aquí, pero usamos anidamiento simple:
+ 
+  #servicio1_sect2 {
+    background-color: #d329b7;
+    width: 300px;
+    height: 450px;
+    margin: 10px;
+  }
+  #servicio2_sect2 {
+    background-color: #d681c8;
+    width: 300px;
+    height: 450px;
+    margin: 10px;
+  }
+ 
+#sect3 {
+  @include mixins.estilo-base-seccion;
+  height: 600px;
+  background-color: variables.$color-fondo-sec3;
+
+  #puntos_sect3 {
+    width: 400px;
+    height: 550px;
+    background-color: rgb(246, 169, 141);
+    float: left;
+    margin: 10px;
+  }
+
+  #segumiento_sect3 {
+    width: 150px;
+    height: 400px;
+    background-color: rgb(236, 152, 34);
+    float: left;
+    margin: 10px;
+    margin-top: 160px;
+  }
+
+  .mapa-contenedor {
+    margin: 20px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: variables.$radio-borde-principal;
+    overflow: hidden;
+
+    iframe { // Anidamiento para el iframe
+      width: 100%;
+      display: block;
+    }
+  }
+}
+
+#sect4 {
+  @include mixins.estilo-base-seccion;
+  height: 600px;
+  background-color: variables.$color-fondo-sec4;
+
+  .logo-cliente {
+    max-width: 190px;
+    height: auto;
+    opacity: 0.8;
+    transition: opacity 0.3s ease-in-out;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+#sect5 {
+  @include mixins.estilo-base-seccion;
+  height: 600px;
+  background-color: variables.$color-fondo-sec5;
+
+  // Uso de un mapa o loop sería ideal aquí, pero usamos anidamiento simple:
+  #novedades_sect5,
+  #novedades1_sect5,
+  #novedades2_sect5 {
+    height: 470px;
+    margin: 10px;
+    float: left;
+    margin-top: 10px;
+  }
+
+  #novedades_sect5 {
+    width: 350px;
+    background-color: #e1ecd6;
+  }
+
+  #novedades1_sect5 {
+    width: 380px;
+    background-color: #aee1d3;
+  }
+
+  #novedades2_sect5 {
+    width: 380px;
+    background-color: #7cd7cf;
+  }
+}
+
+// 5. Bloque FOOTER (Pie de página)
+footer {
+  background-color: variables.$color-fondo-footer;
+}
+
+.footer-transport {
+  @include mixins.estilo-base-seccion;
+  height: 150px; // Valor original, aunque luego se usa 'height: auto'
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: stretch;
+
+  // Estilo base
+  height: auto;
+  padding: 20px;
+  background: variables.$color-footer-bg-dark;
+  color: variables.$color-footer-text-light;
+  border-radius: 12px; // Borde más redondeado
+  border: 1px solid variables.$color-footer-border-dark;
+  gap: 20px;
+
+  .footer-block { // Anidamiento
+    flex: 1 1 260px;
+    min-width: 250px;
+    text-align: center;
+    padding: 14px 10px;
+    background: variables.$color-footer-block-bg;
+    border-radius: variables.$radio-borde-principal;
+    border: 1px solid variables.$color-footer-block-border;
+
+    // Encabezados con jerarquía
+    h2, h3, h4, h5 {
+      margin: 6px 0;
+      line-height: 1.2;
+    }
+
+    h2 {
+      font-size: 20px;
+      color: #9298a2;
+    }
+    h3 {
+      font-size: 16px;
+      color: #9298a2;
+    }
+    h4 {
+      font-size: 15px;
+      color: #93c5fd;
+    }
+    h5 {
+      font-size: 14px;
+      color: #93c5fd;
+    }
+  }
+
+  // Media Queries anidadas
+  @media (min-width: 900px) {
+    height: 180px;
+    align-items: center;
+
+    .footer-block {
+      text-align: center;
+    }
+  }
+
+  @media (prefers-color-scheme: light) {
+    background: #7cb4ec;
+    color: #0f172a;
+    border: 1px solid #676d75;
+
+    .footer-block {
+      background: rgba(255, 255, 255, 0.6);
+    }
+  }
+}

@@ -1,0 +1,33 @@
+// --- Configuración General ---
+$ancho-contenedor: 1200px;
+$fuente-principal: Verdana, Geneva, Tahoma, sans-serif;
+$radio-borde-principal: 8px;
+$borde-general: 5px solid #788b97;
+
+// --- Colores de Marca y UI ---
+$color-header: #8cbfe6;
+$color-hover-btn: #e91a1a;
+$color-fondo-footer: #09f3f3;
+$color-fondo-sec1: #8de0f3;
+$color-fondo-sec3: rgb(241, 108, 13);
+$color-fondo-sec4: rgb(30, 236, 209);
+$color-fondo-sec5: rgb(235, 165, 235);
+$color-texto-oscuro: rgb(7, 15, 9);
+$color-texto-claro-sec: rgb(1, 27, 27);
+
+// --- Colores de Botones y Navegación ---
+$color-btn-nav: #77cff7;
+$color-fondo-sec2-servicio: cornflowerblue;
+
+// --- Colores Footer (Nuevos estilos Flex) ---
+$color-footer-bg-dark: #111827;
+$color-footer-text-light: #9de0ef;
+$color-footer-border-dark: #334155;
+$color-footer-block-bg: rgba(255, 255, 255, 0.02);
+$color-footer-block-border: rgba(255, 255, 255, 0.08);
+
+$mapa-servicios: (
+  servicio-1: #d329b7, // Color 1
+  servicio-2: #d681c8, // Color 2
+  servicio-3: #6d0a5c  // Color 3
+);
