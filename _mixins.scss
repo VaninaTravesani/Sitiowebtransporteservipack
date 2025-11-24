@@ -1,18 +1,32 @@
 @use 'variables';
-// Mixin para centrar bloques principales
-@mixin centrar-bloque {
-  // 2. Accede a la variable con el namespace 'variables.'
-  width: variables.$ancho-contenedor; 
-  margin: 0 auto;
+
+/* -----------------------------------------------------
+   1. MIXIN PARA CENTRAR BLOQUES (SEGURO PARA BOOTSTRAP)
+------------------------------------------------------ */
+// Ya no fuerza width fijo. Mantiene un máximo pero permite fluidez.
+@mixin centrar-bloque($max-width: variables.$ancho-contenedor) {
+  max-width: $max-width;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
-// Mixin para el estilo base de las secciones (borde y radio)
+
+
+/* -----------------------------------------------------
+   2. MIXIN PARA SECCIONES (NO USAR EN HEADER)
+------------------------------------------------------ */
 @mixin estilo-base-seccion {
   border: variables.$borde-general;
   border-radius: variables.$radio-borde-principal;
+  padding: 1.5rem; // opcional – mejora visual
+  background-color: variables.$color-fondo-seccion; // opcional
 }
 
-// Mixin para la tipografía de encabezados de sección
-@mixin titulo-seccion($size: 30px, $color: $color-texto-claro-sec) {
+
+/* -----------------------------------------------------
+   3. MIXIN PARA TÍTULOS DE SECCIÓN
+------------------------------------------------------ */
+@mixin titulo-seccion($size: 30px, $color: variables.$color-texto-claro-sec) {
   margin: 0;
   text-align: center;
   font-size: $size;

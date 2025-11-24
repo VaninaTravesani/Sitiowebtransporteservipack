@@ -3,72 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="estilos.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <title>Servicios</title>
+    <title>Servicios - Transporte ServiPack</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+     <link rel="stylesheet" href="estilos.css">
+    
 </head>
 <body>
-   <header class="d-flex justify-content-between align-items-center p-3 border-bottom">
-     <div id="logo" class="d-flex align-items-center gap-2"> 
+
+<header class="d-flex flex-wrap justify-content-between align-items-center p-3 border-bottom">
+  
+    <div id="logo" class="d-flex align-items-center gap-2"> 
         <img src="Imagenes/logo.png" alt="Logo ServiPack" class="img-fluid rounded-circle" style="height: 100px; width: auto;"> 
-        
         <h1 class="mb-0">Transporte ServiPack</h1> 
     </div>
-        <!--<nav id="botonera1"> LA DEJO SIN USAR POR AHORA
-            <ul>
-                <li><a href="index.html#sect1">Quienes Somos</a></li>
-                <li><a href="servicios.html#sect2">Servicios</a></li>
-                <li><a href="envios.html#sect3">Puntos de Envios</a></li>
-                 <li><a href="clientes.html#sect4">Clientes</a></li>
-                 <li><a href="novedades.html#sect5">Novedades</a></li>
 
-            </ul>
-        </nav>
-    -->
-<nav class="d-flex flex-wrap gap-2">
- <a href="index.html#sect1" class="btn btn-outline-secondary" role="button">Nosotros</a>
- <a href="#sect2" class="btn btn-primary" role="button">Servicios</a>
-  <a href="novedades.html#sect3" class="btn btn-outline-success" role="button">Novedades</a>
-  <a href="clientes.html#sect4" class="btn btn-danger" role="button">Clientes</a>
-  <a href="envios.html#sect5" class="btn btn-warning" role="button">Envios</a>
-</nav>
- <!--ESTA ES L ANUEVA BOTONERA DE REDES SOCIALES CON EL MENU DESPLEGABLE-->
-   <div class="btn-group" role="group">
-    <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-      Redes Sociales
-    </button>
-    <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-      <li><a class="dropdown-item" href="https://www.instagram.com/transporteservipac/"target=_blank><img src="Imagenes/instagram.svg"Instagram></a></li>
-      <li><a class="dropdown-item" href="https://wa.link/hisr95" target="_blank"><img src="Imagenes/whatsapp.svg"></a></li>
-    </ul>
-  </div>
-</div>
-        <!--<ul> ESTA ERA LA BOTONERA DE REDES SOCIALES.-
-            <li><a href="https://www.instagram.com/transporteservipac"target=_blank><img src="Imagenes/instagram.svg"></a></li>
-            <li> <a href= "https://wa.link/hisr95" target="_blank"><img src="Imagenes/whatsapp.svg"></a></li>
-        </ul> -->
-    
+    <nav class="d-flex gap-2 mx-auto mx-md-0 my-2 my-md-0">
+            <a href="index.html#sect1" class="btn btn-outline-secondary">Nosotros</a>
+            <a href="servicios.html#sect2" class="btn btn-outline-primary">Servicios</a>
+            <a href="envios.html#sect3" class="btn btn-outline-warning">Envios</a>
+            <a href="clientes.html#sect4" class="btn btn-outline-danger">Clientes</a>
+            <a href="novedades.html#sect5" class="btn btn-success">Novedades</a>
+    </nav>
+
+    <div class="btn-group">
+        <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" id="redesDropdown" aria-expanded="false">
+            Redes Sociales
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="redesDropdown">
+            <li><a class="dropdown-item" href="https://www.instagram.com/transporteservipac/" target="_blank"><img src="Imagenes/instagram.svg" width="24"></a></li>
+            <li><a class="dropdown-item" href="https://wa.link/hisr95" target="_blank"><img src="Imagenes/whatsapp.svg" width="24"></a></li>
+        </ul>
+     </div>
 </header>
+<main>
+    <section id="sect2" class="container py-5"> <div class="text-center mb-5">
+            <h2 class="txtPedido">Nuestros Servicios</h2>
+            <p class="text-muted">Soluciones logísticas a tu medida</p>
+        </div>
 
-    <section id="sect2">
-    <div id="servicio_sect2">
-    <h2 class="txtPedido">Sección Servicios</h2>
-</div>
-    <div id="servicio1_sect2">
-        <h2>Servicios Solicitados</h2>
-      
-    </div>
-    <div id="servicio2_sect2">
-       
-            <h2>Servicio de Encomiendas</h2>
-            <p class="txtservicios"> Desde Transporte ServiPack te ofrecemos: garantizamos el envío eficiente y seguro de paquetes y mercancías de tamaño intermedio a destinos específicos con la certeza de entregar a tiempo y en condiciones óptimas. Manejo cuidadoso de los paquetes y opciones de entrega flexibles, asegurando así la satisfacción del cliente y el buen estado de las encomiendas a lo largo del trayecto. </p>
-                <li>Trámites Generales</li>
-                <li>Redespacho</li>
-           <h2>Servicios a industrias y Comercios</h2>
-            <p class="txtservicios">Trasladadmos de manera eficiente, mercancías y productos. Optimizando sus operaciones, garantizando la entrega a tiempo de sus productos.</p>
-         </div>
-</section>
+        <div class="row g-4"> <div class="col-md-6"> <article class="caja-servicio h-100"> <div class="icono-servicio">📦</div> <h3>Servicio de Encomiendas</h3>
+                    <p>
+                        Garantizamos el envío eficiente y seguro de paquetes y mercancías de tamaño intermedio 
+                        a destinos específicos con la certeza de entregar a tiempo.
+                    </p>
+                    <ul class="lista-custom">
+                        <li>Trámites Generales</li>
+                        <li>Redespacho a todo el país</li>
+                        <li>Seguimiento online</li>
+                    </ul>
+                </article>
+            </div>
+
+            <div class="col-md-6">
+                <article class="caja-servicio h-100">
+                    <div class="icono-servicio">🏭</div>
+                    <h3>Industrias y Comercios</h3>
+                    <p>
+                        Trasladamos de manera eficiente mercancías y productos, optimizando sus operaciones 
+                        y garantizando la entrega a tiempo para que su negocio no se detenga.
+                    </p>
+                    <ul class="lista-custom">
+                        <li>Logística Industrial</li>
+                        <li>Cargas completas</li>
+                        <li>Distribución B2B</li>
+                    </ul>
+                </article>
+            </div>
+
+        </div>
+    </section>
+</main>
+
 <footer class="footer-transport">
   <div id="datos" class="footer-block">
     <h2>Contacto</h2>
@@ -76,10 +81,12 @@
   </div>
 
   <div id="direccion" class="footer-block">
-    <h3>Dirección</h3>
+    <h2>Dirección</h2>
     <h5>Fco Zilli N 756 - Gobernador Crespo (Santa Fe)</h5>
   </div>
 </footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="scripts.js"></script>
 
 </body>
 </html>

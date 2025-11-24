@@ -1,4 +1,4 @@
-// 1. Importar variables y mixins
+// 1. Importar variables y mixins (Se mantiene igual)
 @use 'variables';
 @use 'mixins';
 @use 'animations';
@@ -8,23 +8,22 @@ body {
 }
 
 // 2. Estilos comunes para contenedores principales
-header,
-section,
-footer {
-  @include mixins.centrar-bloque;
+// ✅ SOLUCIÓN DE LAYOUT: Solo aplica el ancho fijo a SECTION y FOOTER.
+main section {
+   @include mixins.centrar-bloque; // Aplica width fijo
 }
 
 section {
-    @include mixins.centrar-bloque;
-  // Aplicamos la animación a todas las secciones
+  @include mixins.centrar-bloque;
   animation: slide-in-bottom 0.8s ease-out both;
 }
+
+// Estilos de texto globales (Se mantienen igual)
 h1 {
   margin: 0;
   text-align: center;
 }
 
-// Estilos de texto globales
 h6 {
   @include mixins.titulo-seccion(30px, variables.$color-texto-claro-sec);
 }
@@ -39,222 +38,305 @@ h6 {
   text-align: center;
 }
 
-// 3. Bloque HEADER (Cabecera)
+// 3. Bloque HEADER (Cabecera) - LIMPIEZA FINAL
 header {
   @include mixins.estilo-base-seccion;
-  height: 200px;
-  background-color: variables.$color-header;
-
- 
-  // ... estilos del logo y botonera ...
-
+  background-color: variables.$color-header !important;
   
-  @media (max-width: 1250px) {
-    // Sobreescribimos el ancho para que sea fluido
-    width: 95%; 
-  }
-  
-  @media (max-width: 768px) {
-    // En móviles, apilamos los elementos y reducimos la altura
-    height: auto; 
-    display: flex;
-    flex-direction: column; 
-    align-items: center; 
-
-    #botonera1 {
-        width: 100%;
-    }
-  }
-}
 
   /* Anidamiento para elementos internos del header */
   #logo {
-    width: 250px;
-    height: 100px;
-    margin: 10px 0 0 10px; // Abreviando margen
-    box-sizing: border-box;
-
+    margin: 10px 0 0 10px;
+    /*box-sizing: border-box;*/
     animation: logo-entrada 2s ease-out forwards;
+  
+  img {
+    //  ELIMINAMOS: width y height fijos.
+    height: 100px;
+    width: auto;
+    max-width: 100%;
+  }
+}
+  nav {
+      // Si la lista de redes sociales se ve con puntos, este es el fix:
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+  }
+  // 3. Forzar que los elementos con clase .btn ignoren reglas genéricas de 'a'.
+  a.btn {
+      font-weight: 600;
+      text-decoration: none !important; 
   }
 
   // Estilos de la botonera principal
   #botonera1 {
-    width: 600px;
-    height: 100px;
-    float: none;
-    margin: 0 auto; // Centrado horizontal
+    // ELIMINAMOS: width, height y float.
+    margin: 0 auto; 
     box-sizing: border-box;
+    
+    // Mantenemos solo estilos visuales, no de layout.
+    transition: background-color 0.3s ease, transform 0.2s ease;
 
-    // Anidamiento de lista y elementos de la botonera
-    ul {
-      margin: auto;
-      padding: 0;
-      list-style-type: none;
-      display: flex;
-
-      li a { // Compila a #botonera1 ul li a
-        display: block;
-        text-decoration: none;
-        color: variables.$color-texto-oscuro;
-        font-weight: bold;
-        background-color: variables.$color-btn-nav;
-        padding: 20px;
-        border-radius: 10px;
-        margin: 10px;
-        width: 100px;
-        text-align: center;
-
-        transition: background-color 0.3s ease, transform 0.2s ease;
-
-        &:hover { // Anidamiento de pseudo-clase
-          background-color: variables.$color-hover-btn;
-
-          transform: scale(1.05);
-        }
-      }
+    &:hover { 
+      background-color: variables.$color-hover-btn;
+      transform: scale(1.05);
     }
   }
 
   // Estilos de Redes Sociales
-  #sociales {
-    width: 150px;
-    height: 40px;
-    margin-left: 2px;
-    float: right;
-    padding: 5px;
-    box-sizing: border-box;
-    align-content: center;
-
-    ul {
-      margin: auto;
-      padding: 0;
-      list-style-type: none;
-      display: flex;
-    }
+  .btn-group {
+       // Aseguramos que la botonera no se vea rara
+    min-width: 150px;
+    text-align: right;
   }
-// Fin de Header
+    /*button {
+      font-weight: bold;
+    }*/
 
+    img {
+      width: 24px;
+      height: auto;
+    }
+    // Media Query para Responsiveness (Importante)
+  @media (max-width: 768px) {
+    
+  }
+  
+}
 // 4. Bloques SECTION (Secciones)
 
 #sect1 {
   @include mixins.estilo-base-seccion;
-  height: 600px;
+  height:auto;
   background-color: variables.$color-fondo-sec1;
 
   #img_sect1 {
-    width: 300px;
-    height: 300px;
-    margin: 10px 0 0 100px;
-    float: left;
-    // La propiedad 'border-image' no se puede simplificar con Sass.
+   
     border-image: url(Imagenes/expresso.png) 20 round;
+    
   }
 
   .Form_img {
     width: 100%;
+    box-sizing: border-box;
   }
 
   #quienes_sect1 {
-    width: 600px;
-    height: 270px;
-    margin: 5px 10px; // Combinando margin-top y margin-block
-    float: left;
-    padding: 5px;
+   
+    margin: 5px 10px; // Puedes mantener márgenes pequeños
+    padding: 5px; // Esto es estético y está bien
   }
 
   #carrusel_sect1 {
-    width: 500px;
-    height: 570px;
-    background-color: rgb(109, 166, 216);
-    float: right;
+    /*width: 500px;
+    height: 270px;
+    float: right;*/
     margin-top: 10px;
     padding: 10px;
     box-sizing: border-box;
   }
 }
+// Variables
+$color-primario: #0d6efd;
+$color-oscuro: #212529;
 
-#sect2 {
-  @include mixins.estilo-base-seccion; 
-  border-width: 2px; // Sobreescribiendo el ancho del borde
-  height: auto;
-  // ⭐ PASO CLAVE: USAR FLEXBOX PARA REEMPLAZAR FLOAT ⭐
-  display: flex; 
-  flex-wrap: wrap; 
-  justify-content: center; // Centra los servicios en el eje horizontal
-  align-content: flex-start; // Alinea el contenido al inicio para no dejar espacio arriba
+h2 {
+  // Estilos base
+  font-family: 'Segoe UI', sans-serif;
+  color: $color-oscuro;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+
+  // ESTADO INICIAL (Invisible y desplazado a la izquierda)
+  opacity: 0;
+  transform: translateX(-50px);
   
+  // La transición suave (la magia ocurre aquí)
+  transition: all 0.8s ease-out;
 
-// bucle @each para aplicar los estilos de forma dinámica
-@each $nombre, $color in variables.$mapa-servicios {
-  ##{$nombre}_sect2 { // Interpola el nombre para crear los selectores: #servicio-1_sect2, etc.
-    width: 340px;
-    height: 450px;
-    margin: 10px 5px;
-    background-color: $color; // Aplica el color del mapa
+  // Elemento decorativo (línea azul)
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background-color: $color-primario;
+    transition: width 0.3s ease;
+  }
+
+  &:hover::after {
+    width: 100px;
+  }
+
+  // ESTADO VISIBLE (Cuando JS agregue esta clase, el h2 aparece)
+  &.visible {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
+
+/* ESTILOS PARA SERVICIOS.HTML */
+// Variables 
+// ==========================================
+// 1. VARIABLES & RESETES GLOBALES (Mínimo necesario)
+// ==========================================
+$color-primario: #0d6efd;       
+$color-oscuro: #212529;         
+$color-destacado: #28cdf2;      
+$blanco: #ffffff;
+
+html, body {
+  overflow-x: hidden; // Previene el scroll horizontal de la animación
 }
 
-// ⭐ CONTENEDOR DE TÍTULO (MANTENER FUERA DEL BLOQUE #sect2) ⭐
-// Este elemento en HTML es hermano de #sect2, 
-#servicio_sect2 {
-  // @include centrar-bloque; <-- Cuidado si esto aplica el ancho de 1200px.
-  width: 1100px; 
-  height: 90px;
-  background-color: variables.$color-fondo-sec2-servicio;
-  margin: 20px auto;
-  //margin: 0 auto 5px auto; // Centrado horizontal
-  clear: both; // Mantenemos clear: both; para asegurar que limpia cualquier flotante anterior
-  padding: 10px;
-  box-sizing: border-box;
-  display: block;
+// ==========================================
+// 2. ESTILOS DE TÍTULOS H2 Y ANIMACIÓN SCROLL
+// (Necesario para que los H2 no se vean invisibles)
+// ==========================================
+h2 {
+  color: $color-oscuro;
+  font-weight: 700;
+  // Estructura y transición para la animación
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: all 0.8s ease-out; 
+
+  // Línea decorativa
+  &::after {
+    content: '';
+    // ... estilos de la línea
+    background-color: $color-primario;
+    // ...
+  }
+
+  // Clase que activa la animación (añadida por main.js)
+  &.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
-  // Uso de un mapa o loop sería ideal aquí, pero usamos anidamiento simple:
- 
-  #servicio1_sect2 {
-    background-color: #d329b7;
-    width: 300px;
-    height: 450px;
-    margin: 10px;
+.txtPedido {
+  color: $color-destacado; // Color del título principal de la sección
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+// ==========================================
+// 3. ESTILOS DE TARJETAS (SECCIÓN #sect2)
+// ==========================================
+
+// La sección base
+#sect2 {
+  background-color: $blanco;
+  position: relative;
+  padding-bottom: 3rem;
+  // ✅ LÍNEAS DE BORDE SIMILARES AL HEADER/FOOTER:
+  border-top: 1px solid rgba(0, 0, 0, 0.1);    // Borde superior fino
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1); // Borde inferior fino
+  border-radius: 12px; // Borde más redondeado
+  border: 1px solid variables.$color-footer-border-dark;
+  padding-top: 3rem; 
+  padding-bottom: 3rem;
+  
+  
+}
+
+// --- CLASE PRINCIPAL DE LA TARJETA ---
+.caja-servicio {
+  background-color: $blanco;
+  border-radius: 20px;       
+  padding: 2rem;             // CRÍTICO: Relleno para que el texto no se salga
+  box-shadow: 0 5px 20px rgba(0,0,0, 0.08); 
+  border: 1px solid rgba(0,0,0, 0.05); 
+  transition: transform 0.3s ease; 
+  
+  // Esencial para que se adapte al contenido de Bootstrap
+  display: flex;
+  flex-direction: column; 
+  height: 100%; 
+
+  // --- MEDIA QUERY: Responsiveness ---
+  @media (max-width: 768px) {
+    padding: 1.5rem; // Menos relleno en celular
+    h3 { font-size: 1.3rem; } 
   }
-  #servicio2_sect2 {
-    background-color: #d681c8;
-    width: 300px;
-    height: 450px;
-    margin: 10px;
+}
+
+// --- ÍCONO (EMOJI O IMG) ---
+.icono-servicio {
+  font-size: 3rem;
+  width: 70px;
+  height: 70px;
+  background-color: rgba($color-destacado, 0.1); 
+  color: $color-destacado;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+// --- LISTA PERSONALIZADA CON CHECKS ---
+.lista-custom {
+  list-style: none;
+  padding-left: 0;
+  margin-top: auto; // Empuja la lista hacia abajo
+
+  li {
+    position: relative;
+    padding-left: 30px; 
+    margin-bottom: 10px;
+    
+    // El "Check" dibujado con CSS
+    &::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: $color-destacado; 
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
   }
+}
  
 #sect3 {
   @include mixins.estilo-base-seccion;
-  height: 600px;
+  // ✅ ELIMINADO: height: 600px; -> Usamos altura automática para que se adapte al contenido.
+  height: auto; 
   background-color: variables.$color-fondo-sec3;
 
   #puntos_sect3 {
-    width: 400px;
-    height: 550px;
+    // 🛑 ELIMINADAS: width, height, float y margin fijos. 
+    // Bootstrap ahora define el ancho (col-lg-6).
     background-color: rgb(246, 169, 141);
-    float: left;
-    margin: 10px;
+    padding: 20px; // Mantenemos el padding como estilo visual.
   }
 
   #segumiento_sect3 {
-    width: 150px;
-    height: 400px;
+    // 🛑 ELIMINADAS: width, height, float y margin fijos.
+    // Si este bloque no se usa en envios.html, puedes comentarlo o borrarlo.
     background-color: rgb(236, 152, 34);
-    float: left;
-    margin: 10px;
-    margin-top: 160px;
+    padding: 20px;
   }
 
   .mapa-contenedor {
+    // Estilos estéticos
     margin: 20px 0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: variables.$radio-borde-principal;
     overflow: hidden;
 
-    iframe { // Anidamiento para el iframe
-      width: 100%;
+    iframe { 
+      width: 100%; // Esencial para responsividad horizontal.
+      height: 450px; // Altura definida para buena visualización.
       display: block;
     }
   }
@@ -262,11 +344,11 @@ header {
 
 #sect4 {
   @include mixins.estilo-base-seccion;
-  height: 600px;
+  height: auto;
   background-color: variables.$color-fondo-sec4;
 
   .logo-cliente {
-    max-width: 190px;
+    /*max-width: 100%;*/
     height: auto;
     opacity: 0.8;
     transition: opacity 0.3s ease-in-out;
@@ -277,35 +359,85 @@ header {
   }
 }
 
-#sect5 {
-  @include mixins.estilo-base-seccion;
-  height: 600px;
-  background-color: variables.$color-fondo-sec5;
+// ==========================================
+// 4. SECCIÓN NOVEDADES (#sect5) - Refactorizado para ser Responsive
+// ==========================================
 
-  // Uso de un mapa o loop sería ideal aquí, pero usamos anidamiento simple:
+#sect5 {
+  // ✅ ELIMINADO: height: 600px;
+  // La altura será automática según el contenido.
+  
+  @include mixins.estilo-base-seccion;
+  background-color: variables.$color-fondo-sec5; // Usamos tu color de fondo
+  
+  // Añadimos los bordes suaves para consistencia con el header/footer
+  border-top: 1px solid rgba(0, 0, 0, 0.1);    
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1); 
+  padding-top: 3rem; 
+  padding-bottom: 3rem;
+
+  // Los siguientes selectores de IDs fijos deben ser ELIMINADOS del archivo SCSS,
+  // ya que ahora usamos la CLASE .caja-servicio y la rejilla de Bootstrap:
+  
+  /*
   #novedades_sect5,
   #novedades1_sect5,
   #novedades2_sect5 {
-    height: 470px;
-    margin: 10px;
-    float: left;
-    margin-top: 10px;
+    // ELIMINADO: height: 470px;
+    // ELIMINADO: width: 350px; / 380px;
+    // ELIMINADO: float: left;
+    // Si quedan estas líneas, el diseño se romperá.
   }
+  */
+}
+// --- TARJETAS DE SERVICIO (.caja-servicio) ---
+.caja-servicio {
+  // ... (otros estilos: padding: 2rem, border-radius, box-shadow, etc.) ...
 
-  #novedades_sect5 {
-    width: 350px;
-    background-color: #e1ecd6;
-  }
+  // ✅ BARRERA RESPONSIVE EXPLÍCITA (Para celulares)
+  @media (max-width: 768px) {
+    padding: 1.5rem; // Reducimos el relleno en móvil
 
-  #novedades1_sect5 {
-    width: 380px;
-    background-color: #aee1d3;
-  }
+    // Títulos de las tarjetas más pequeños en celular
+    h3 {
+      font-size: 1.2rem; // El título de la novedad es más legible
+    }
 
-  #novedades2_sect5 {
-    width: 380px;
-    background-color: #7cd7cf;
+    // Párrafos más pequeños en celular
+    p {
+      font-size: 0.9rem;
+      line-height: 1.4; // Menos espacio entre líneas
+    }
   }
+}
+// ----------------------------------------
+// ESTILOS DE TARJETAS (USANDO CLASES COMPARTIDAS)
+// ----------------------------------------
+
+// Nota: Todos los estilos de forma, sombra, padding y responsive
+// ya están definidos en la clase .caja-servicio que creamos para la sección Servicios.
+// Por lo tanto, ¡casi no necesitamos código extra aquí!
+
+// Si quieres que las tarjetas de Novedades tengan un color de fondo diferente
+// al que tienen las tarjetas de Servicios, puedes usar una clase MODIFICADORA 
+// en el HTML (ej: class="caja-servicio card--novedades") y definir el color aquí:
+
+/*
+.caja-servicio.card--novedades {
+    background-color: variables.$color-fondo-sec5;
+    // Podrías ponerle una sombra diferente si quisieras.
+}
+*/
+
+// --- Estilos para el Carrusel de Imágenes ---
+// (Necesario para la tarjeta de "Nuevas Instalaciones")
+.carousel {
+    margin-bottom: 1rem;
+    .carousel-inner img {
+        height: 450px; // Altura fija para que todas las imágenes sean uniformes
+        object-fit: cover;
+        border-radius: 8px;
+    }
 }
 
 // 5. Bloque FOOTER (Pie de página)
@@ -374,7 +506,7 @@ footer {
   }
 
   @media (prefers-color-scheme: light) {
-    background: #7cb4ec;
+    background: #7cb4ec9d;
     color: #0f172a;
     border: 1px solid #676d75;
 

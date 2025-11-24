@@ -3,75 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="estilos.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <title>Novedades</title>
+    <title>Novedades - Transporte ServiPack</title>
 </head>
 <body>
-  <header class="d-flex justify-content-between align-items-center p-3 border-bottom">
-     <div id="logo" class="d-flex align-items-center gap-2"> 
+   
+<header class="d-flex flex-wrap justify-content-between align-items-center p-3 border-bottom">
+  
+    <div id="logo" class="d-flex align-items-center gap-2"> 
         <img src="Imagenes/logo.png" alt="Logo ServiPack" class="img-fluid rounded-circle" style="height: 100px; width: auto;"> 
-        
         <h1 class="mb-0">Transporte ServiPack</h1> 
     </div>
 
-   
-        <!--<nav id="botonera1"> LA DEJO SIN USAR POR AHORA
-            <ul>
-                <li><a href="index.html#sect1">Quienes Somos</a></li>
-                <li><a href="servicios.html#sect2">Servicios</a></li>
-                <li><a href="envios.html#sect3">Puntos de Envios</a></li>
-                 <li><a href="clientes.html#sect4">Clientes</a></li>
-                 <li><a href="novedades.html#sect5">Novedades</a></li>
+    <nav class="d-flex gap-2">
+            <a href="index.html#sect1" class="btn btn-outline-secondary">Nosotros</a>
+            <a href="servicios.html#sect2" class="btn btn-outline-primary">Servicios</a>
+            <a href="envios.html#sect3" class="btn btn-outline-warning">Envios</a>
+            <a href="clientes.html#sect4" class="btn btn-outline-danger">Clientes</a>
+            <a href="#sect5" class="btn btn-success">Novedades</a>
+    </nav>
 
+        <div class="btn-group">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" id="redesDropdown" aria-expanded="false">
+                Redes Sociales
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="redesDropdown">
+                <li><a class="dropdown-item" href="https://www.instagram.com/transporteservipac/" target="_blank"><img src="Imagenes/instagram.svg" width="24"></a></li>
+                <li><a class="dropdown-item" href="https://wa.link/hisr95" target="_blank"><img src="Imagenes/whatsapp.svg" width="24"></a></li>
             </ul>
-        </nav>
-    -->
-<nav class="d-flex flex-wrap gap-2">
-    <a href="index.html#sect1" class="btn btn-outline-secondary" role="button">Nosotros</a>
- <a href="servicios.html#sect2" class="btn btn-primary" role="button">Servicios</a>
-  <a href="sect5" class="btn btn-outline-success" role="button">Novedades</a>
-  <a href="clientes.html#sect4" class="btn btn-danger" role="button">Clientes</a>
-  <a href="envios.html#sect3" class="btn btn-warning" role="button">Envios</a>
-  </nav>
- <!--ESTA ES L ANUEVA BOTONERA DE REDES SOCIALES CON EL MENU DESPLEGABLE-->
- <div class="btn-group" role="group">
-    <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-      Redes Sociales
-    </button>
-    <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-      <li><a class="dropdown-item" href="https://www.instagram.com/transporteservipac/"target=_blank><img src="Imagenes/instagram.svg"Instagram></a></li>
-      <li><a class="dropdown-item" href="https://wa.link/hisr95" target="_blank"><img src="Imagenes/whatsapp.svg"></a></li>
-    </ul>
-  </div>
+         </div>
 </header>
-<section id="sect5">
-    <div id="novedades_sect5">
-    <h2 class="txtPedido">Nuevos Destinos</h2>
-</div>
-    <div id="novedades1_sect5">
-        <h2>Precios Especiales</h2>
-      
-    </div>
-    <div id="novedades2_sect5">
-       
-            <h2>Nuevas Instalaciones</h2>
-            <p class="txtservicios"> Scroll de Imagenes </p>
-                                          
-      </div>
-  </section>
-  <footer class="footer-transport">
-  <div id="datos" class="footer-block">
-    <h2>Contacto</h2>
-    <h4>Tel: 03498-15478680</h4>
-  </div>
 
-  <div id="direccion" class="footer-block">
-    <h3>Dirección</h3>
-    <h5>Fco Zilli N 756 - Gobernador Crespo (Santa Fe)</h5>
-  </div>
+<main>
+    <section id="sect5" class="container py-5">
+        
+        <div class="text-center mb-5">
+            <h2 class="txtPedido">Últimas Novedades y Destinos</h2>
+        </div>
+
+        <div class="row g-4">
+            
+            <div class="col-md-4">
+                <article class="caja-servicio h-100">
+                    <div class="icono-servicio">🗺️</div>
+                    <h2>Nuevos Destinos</h2>
+                    <p>
+                        Ampliamos nuestra red de distribución[cite: 179]. Ahora ofrecemos rutas directas a las principales
+                        ciudades del interior de Córdoba y Buenos Aires con tiempos de entrega garantizados[cite: 180].
+                    </p>
+                    <a href="#" class="btn btn-sm btn-outline-primary mt-auto">Ver Rutas</a>
+                </article>
+            </div>
+            
+            <div class="col-md-4">
+                <article class="caja-servicio h-100">
+                    <div class="icono-servicio">💲</div>
+                    <h2>Precios Especiales</h2>
+                    <p>
+                        Aprovecha nuestras tarifas promocionales en envíos de más de 50kg durante todo el mes de Julio[cite: 183]. Ideal para comercios y envíos industriales. ¡Cotiza tu envío hoy mismo! [cite: 184]
+                    </p>
+                    <a href="#" class="btn btn-sm btn-outline-primary mt-auto">Cotizar</a>
+                </article>
+            </div>
+            
+            <div class="col-md-4">
+                <article class="caja-servicio h-100">
+                    <div class="icono-servicio">🏢</div>
+                    <h3>Nuevas Instalaciones</h3>
+                    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="Imagenes/deposito.jpg" class="d-block w-100" alt="Almacén Nuevo 1">
+                            </div>
+                            </div>
+                    </div>
+                    <p class="text-muted mt-3">¡Hemos inaugurado un nuevo centro logístico más amplio y eficiente!</p>
+                </article>
+            </div>
+
+        </div>
+    </section>
+</main>
+
+<footer class="footer-transport">
+    <div id="datos" class="footer-block">
+        <h2>Contacto</h2>
+        <h4>Tel: 03498-15478680</h4>
+    </div>
+    <div id="direccion" class="footer-block">
+        <h2>Dirección</h2>
+        <h5>Fco Zilli N 756 - Gobernador Crespo (Santa Fe)</h5>
+    </div>
 </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="scripts.js"></script>
 
 </body>
 </html>
